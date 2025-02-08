@@ -8,7 +8,6 @@ body {
 
 /* 头部样式 */
 /* 确保第一部分占据整个屏幕 */
-/* 确保第一部分占据整个屏幕 */
 .hero {
   position: relative;
   width: 100%;
@@ -22,8 +21,8 @@ body {
 /* 文本覆盖层 */
 .text-overlay {
   position: absolute;
-  top: 40%;
-  left: 5%; /* 左对齐距离屏幕左侧 5% */
+  top: 35%;
+  left: 2%; /* 左对齐距离屏幕左侧 */
   transform: translateY(-50%); /* 垂直居中 */
   text-align: left; /* 左对齐 */
   color: #fff;
@@ -61,35 +60,102 @@ body {
 
 /* 前两排文字样式 */
 .text-overlay h1 {
-  font-size: 9rem; /* 是原来的 3 倍大小 */
+  font-size: 9rem; 
   margin: 0.5rem 0;
 }
 
 .text-overlay h2 {
-  font-size: 6rem; /* 是原来的 3 倍大小 */
+  font-size: 6rem; 
   margin: 0.5rem 0;
 }
 
 /* 后几排文字样式 */
 .text-overlay p {
-  font-size: 1.5rem; /* 保持原大小 */
+  font-size: 1.5rem; 
   margin: 1rem 0;
 }
 
+/* 渐变层样式 失败版*/
+.gradient-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
 /* 画作展示区样式 */
+.gallery-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(100vw - 4cm);
+  margin: 50px 1900px; 
+  overflow: hidden;
+  background-color: #000;
+  height: 390px;
+  position: relative;
+  z-index: 1;
+}
+
+.gallery-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: #000;
+  height: 100%;
+}
+
 .gallery {
   display: flex;
+  gap: 20px;
   overflow-x: auto;
-  padding: 20px;
-  gap: 10px;
+  padding: 0 40px;
+  scrollbar-width: none;
+  height: 100%; 
+  scroll-snap-type: x mandatory; /* 启用滚动捕捉 */
 }
-.gallery img {
-  max-height: 200px;
-  transition: transform 0.3s, box-shadow 0.3s;
+
+.gallery::-webkit-scrollbar {
+  display: none;
 }
-.gallery img:hover {
+
+.art-item, .text-item {
+  position: relative;
+  width: 182px; /* 宽度 */
+  height: 390px; /*长度*/
+  background: #333;
+  overflow: hidden;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+  border-radius: 15px; /* 圆角矩形 */
+  scroll-snap-align: start; /* 滚动捕捉对齐 */
+}
+
+.art-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 确保画面填满圆角矩形，超出部分不可见 */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.art-item:hover img {
   transform: scale(1.1);
   box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5);
+}
+
+.art-item:hover ~ .art-item {
+  transform: translateX(20px);
+}
+
+.art-item:not(:hover) {
+  transform: translateX(0);
 }
 
 /* 项目展示区样式 */
@@ -120,5 +186,63 @@ body {
   }
   to {
     opacity: 1;
+  }
+}
+
+/* 小mao样式 */
+.heart {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-image: url('./heart.png'); /* 使用猫猫图片 */
+  background-size: cover;
+  transform: translate(-50%, -50%);
+  animation: fadeOut 1s ease forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: scale(1) translate(-50%, -50%);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2) translate(-50%, -50%);
+  }
+}
+
+/* 为了更好的手机爹 */
+#world {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* 确保背景层 */
+}
+
+/* 为了更好的手机爹 */
+@media (max-width: 768px) {
+  .hero .text-overlay h1,
+  .hero .text-overlay h3,
+  .hero .text-overlay h6 {
+    font-size: 1.5em; /* 调整字体大小 */
+  }
+
+  .about-text h4 {
+    font-size: 1.2em; /* 调整字体大小 */
+  }
+
+  .project-card {
+    margin: 10px; /* 调整项目卡片的间距 */
+    padding: 10px; /* 调整项目卡片的内边距 */
+  }
+
+  .project-card h3 {
+    font-size: 1.5em; /* 调整项目标题的字体大小 */
+  }
+
+  .project-card p {
+    font-size: 1em; /* 调整项目描述的字体大小 */
   }
 }
