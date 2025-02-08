@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>uuuuiilk Portfolio</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.17.1/matter.min.js"></script>
 </head>
 <body>
   <header class="hero">
@@ -15,25 +16,40 @@
       <h3 class="fade-in-delay">（打招呼内容的浮动效果好像只有刷新了才看得见，，，，</h3>
       <h6 class="fade-in-delay">但是没事哒</h6>
     </div>
+    <div class="gradient-overlay"></div>
   </header>
   <main>
+    <section class="about">
+      <div class="about-text">
+        <h4>这里我觉得应该有一点框框或者类似于分界线的东西（托腮</h4>
+        <h4>但是当我尝试了无数遍还是失败的时候我就知道我顺利的产生了依托。。。（真好）</h4>
+        <br>
+      </div>
+    </section>
     <section class="gallery">
-      <div class="scrollable">
-        <!-- Images dynamically inserted by script.js -->
+      <div class=".gradient-overlay">
+        <div class="gallery-wrapper">
+          <div class="gallery-container">
+            <div class="gallery">
+              <!-- 一些我的美丽的画作 -->
+            </div>
+          </div>
+        </div>
       </div>
     </section>
     <section class="projects">
       <div class="project-card">
-        <h3>2048 Game</h3>
-        <p>A simple number-merge puzzle game built with HTML, CSS, and JavaScript.</p>
-        <a href="https://game.uuuuiilk.com" target="_blank">Play Now</a>
+        <h3>2048</h3>
+        <p>来一场酣畅淋漓的2048叭</p>
+        <a href="https://game.uuuuiilk.com" target="_blank">玩过的都说好</a>
       </div>
       <div class="project-card">
         <h3>Other Projects</h3>
-        <p>正在开发…</p>
+        <p>有生之年吧…</p>
       </div>
     </section>
   </main>
+  <canvas id="world"></canvas>
   <script src="script.js"></script>
 </body>
 </html>
