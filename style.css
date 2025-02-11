@@ -2,7 +2,7 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #000;
+  background-color: #363535;
   color: #fff;
 }
 
@@ -192,12 +192,13 @@ body {
 /* 小mao样式 */
 .heart {
   position: absolute;
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
   background-image: url('./heart.png'); /* 使用猫猫图片 */
   background-size: cover;
   transform: translate(-50%, -50%);
   animation: fadeOut 1s ease forwards;
+  pointer-events: none; /* 确保图片不可点击 */
 }
 
 @keyframes fadeOut {
@@ -211,14 +212,14 @@ body {
   }
 }
 
-/* 为了更好的手机爹 */
 #world {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1; /* 确保背景层 */
+  z-index: 1; /* 确保背景层 */
+  pointer-events: auto; /* 确保背景层可以点击 */
 }
 
 /* 为了更好的手机爹 */
