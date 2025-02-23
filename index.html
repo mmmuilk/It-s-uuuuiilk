@@ -6,6 +6,8 @@
   <title>uuuuiilk Portfolio</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.17.1/matter.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 <body>
   <header class="hero">
@@ -24,7 +26,7 @@
         <h4>__这里我觉得应该有一点框框或者类似于分界线的东西（托腮</h4>
         <h4>__但是当我尝试了无数遍还是失败的时候我就知道我顺利的产生了依托。。。（真好（首页双击可以出现猫猫头喔</h4>
         <hr>
-        <h6>__v于是采用了添加文字这样拙劣的方法</h6>
+        <h6>__于是采用了添加文字这样拙劣的方法</h6>
         <br>
       </div>
     </section>
@@ -50,6 +52,14 @@
         <p>有生之年吧…</p>
       </div>
     </section>
+    <div style="margin-top: 120px;"></div>
+    <div style="display: flex; align-items: center; margin-left: 80px;/* background: linear-gradient(to right,#222, #fff)*/;">
+      <div id="map" style="height: 600px; flex: 1; margin-right: 20px;"></div>
+      <div style="flex: 0 0 220px; text-align: left; margin-left: auto; margin-right: auto;">
+        <p style="writing-mode: vertical-rl; color: #9fbda5">一个偷了一丢丢懒的地图</p>
+      </div>
+    </div>
+    <script src="map.js"></script>
   </main>
   <footer style="text-align: right; margin-right: 2cm;">
     <div class="footer-text">
