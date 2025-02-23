@@ -218,7 +218,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 1; /* 确保背景层 */
+  z-index: -1; /* 确保背景层 */
   pointer-events: auto; /* 确保背景层可以点击 */
 }
 
